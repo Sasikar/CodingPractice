@@ -1,0 +1,303 @@
+package com.opentext.core.cm;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        String x = "abaddfghhj";
+        String y = "abaxyzabc";
+       /// System.out.println(recursion(x));
+        
+        Integer in = Integer.valueOf("0");
+        countRecusion(y, in);
+       // System.out.println(in);
+        
+        
+        System.out.println(tailSum(8188));
+        
+		
+	}
+	
+	
+	
+	public static int count8(int x) {
+		
+	if(x == 0 )	 {
+		return 0;
+	}
+	
+	
+	int val = count8(x/10);
+	
+	int count = 0; 
+	
+	if(x%10 == 8) {
+		count++;
+	}
+ 
+	if (val%10 ==8) {
+		count++;
+	}
+	
+     return count;
+	
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static int tailSum(int x) {
+		
+		if(x <=  9   ) {
+			return x;
+		}
+		
+		int y = x%10;
+		
+		
+		 return  y + tailSum( x/10 ); 
+		
+	}
+	
+	
+	public static int headSum (int x) {
+		if(x == 0 ) {
+			return 0;
+		}
+		
+		int val =  headSum(x/10);
+		
+		int currentVal  = x%10 ; 
+		
+		return val + currentVal ; 
+		
+		
+		
+	}
+	
+	
+	public static int tail11Count(String x) {
+		
+		if(x.length()<2 ) {
+			return 0;
+		}
+		
+		if(x.substring(0, 2).equalsIgnoreCase("11")) {
+			
+			return 1 +  tail11Count (x.substring(2)) ; 
+		}
+		 
+		else {
+			return  0 +  tail11Count (x.substring(1)) ; 
+		}
+		
+	}
+	
+	
+	
+	
+	public static String noX (String x) {
+		
+		if("".equalsIgnoreCase(x)) {
+			return "";
+		}
+		
+		String val  = noX (x.substring(1));
+
+		String currentVal = x.substring(0,1) +  val  ;
+		 
+		currentVal = currentVal.replace("x", "");
+		
+		return currentVal;
+		
+		
+	}
+	
+	public static String noXTail (String x) {
+		
+		if("".equalsIgnoreCase(x)) {
+			return "";
+		}
+		
+		if(x.charAt(0) == 'x') {
+			return noXTail(x.substring(1));
+		}
+		else {
+			return x.charAt(0) +  noXTail(x.substring(1));
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static String endX(String x) {
+		
+		if("".equalsIgnoreCase(x)) {
+			return "";
+		}
+		
+		if(x.charAt(0)=='x') {
+			return endX(x.substring(1))  + "x";				
+		}
+		else {
+			return  x.charAt(0) + endX(x.substring(1)) ;
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static String reverseString(String r) {
+		
+		if("".equalsIgnoreCase(r)) {
+			return "";
+		}
+		
+		String val = reverseString(r.substring(1));
+		
+		return val + r.substring(0,1);
+		
+	}
+	
+	
+	public static int CountABCOrABA ( String a) {
+		
+		if(a.length() <=2) {
+			return 0;
+		}
+		
+		int count =0;
+		
+		if( a.substring(0, 3).equalsIgnoreCase("abc") ||  a.substring(0, 3).equalsIgnoreCase("aba") ) {
+			count++;
+		}
+		
+		return count + CountABCOrABA(a.substring(1));
+	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static String recursion(String x) {
+		
+		if(x.equalsIgnoreCase("")) {
+			return "";
+		}
+		
+		String val = recursion(x.substring(1));
+		String pass = "";
+		if(""!= val && val.substring(val.length()-1).equalsIgnoreCase(x.substring(0, 1))) {
+			pass = val + "*" +x.substring(0, 1);
+		} else {
+			pass = val  + x.substring(0, 1);
+		}
+		return pass;
+		
+	}
+	public static String countRecusion(String y,Integer x) {
+		if(y.equalsIgnoreCase("")) {
+			return "";			
+		}
+		
+		String val = countRecusion(y.substring(1), x);
+		
+		if(val.contains("cba") || val.contains("aba")) {
+			x++;
+			return "";
+		}
+		else {
+			return val + y.substring(0, 1);
+		}
+		
+		
+	}
+	
+	
+
+
+}
